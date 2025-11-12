@@ -132,10 +132,3 @@ Elles sont réparties en plusieurs tables reliées par `order_id` et `customer_i
 - Création d’un tableau de bord **temps réel** avec Streamlit ou Power BI Service.  
 - Segmentation IA des vendeurs selon performance logistique.  
 
----
-
-## 🧑‍💻 Auteur
-Projet réalisé dans le cadre d’une reconversion **Data Analyst**,  
-avec une spécialisation en **analyse de données e-commerce et IA appliquée**.  
-
-> 🧭 Objectif : démontrer la capacité à relier analyse métier, modélisation et visualisation décisionnelle.
