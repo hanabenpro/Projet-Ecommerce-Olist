@@ -56,5 +56,29 @@ ALTER COLUMN freight_value float;
 ALTER TABLE stg_reviews_clean
 ALTER COLUMN review_score int;
 
-ALTER TABLE dbo.dim_review 
+ALTER TABLE mart.dim_review 
 ALTER COLUMN result_concatenation_coms NVARCHAR(MAX);
+
+-- Supprimer la clé étrangère (FK) vers dim_review
+ALTER TABLE mart.fact_orders
+DROP CONSTRAINT FK_fact_orders_reviews;
+
+--Supprimer la clé primaire existante de dim_review
+SELECT 
+    CONSTRAINT_NAME
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'dim_review'
+  AND CONSTRAINT_TYPE = 'PRIMARY KEY';
+
+ALTER TABLE mart.dim_review
+DROP CONSTRAINT PK__dim_revi__60883D90D2D99B95;
+
+--Ajouter la colonne surrogate key
+ALTER TABLE mart.dim_review
+ADD review_key INT IDENTITY(1,1);
+
+--Créer la nouvelle clé primaire sur cette colonne
+ALTER TABLE mart.dim_review
+ADD CONSTRAINT PK_dim_review PRIMARY KEY (review_key);
+
+

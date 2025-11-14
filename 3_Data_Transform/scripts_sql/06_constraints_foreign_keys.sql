@@ -13,7 +13,7 @@ ADD CONSTRAINT FK_fact_orders_products
     FOREIGN KEY (product_id)
     REFERENCES dim_products(product_id);
 
-ALTER TABLE fact_orders
-ADD CONSTRAINT FK_fact_orders_reviews
-FOREIGN KEY (review_id)
-REFERENCES dim_review(review_id);
+
+ALTER TABLE mart.fact_orders
+ADD CONSTRAINT FK_fact_orders_dim_review
+FOREIGN KEY (review_key) REFERENCES mart.dim_review(review_key);

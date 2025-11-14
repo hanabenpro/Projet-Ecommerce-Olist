@@ -8,7 +8,7 @@ SELECT DISTINCT
     customer_state,
     customer_zip_code_prefix
 FROM
-    dbo.stg_customers_clean;
+    stg.stg_customers_clean;
 
 -- ETAPE D'INSERTION DES DONNEES DANS LA TABLE DIM_SELLERS
 
@@ -19,7 +19,7 @@ SELECT DISTINCT
     seller_state,
     seller_zip_code_prefix
 FROM
-    dbo.stg_sellers_clean;
+    stg.stg_sellers_clean;
 
 -- ETAPE D'INSERTION DES DONNEES DANS LA TABLE DIM_PRODUCTS
 
@@ -42,8 +42,8 @@ SELECT DISTINCT
     p.product_height_cm,
     p.product_width_cm,
     p.product_volume_cm3
-FROM dbo.stg_products_clean p
-LEFT JOIN dbo.stg_category_clean c
+FROM stg.stg_products_clean p
+LEFT JOIN stg.stg_category_clean c
     ON p.product_category_name = c.product_category_name;
 
 -- ETAPE D'INSERTION DES DONNEES DANS LA TABLE DIM_REVIEW
@@ -62,12 +62,13 @@ SELECT DISTINCT
     result_concatenation_coms,
     review_creation_date,
     review_answer_timestamp
-FROM dbo.stg_reviews_clean;
+FROM stg.stg_reviews_clean;
 
--- TABLES EN ATTENTE DE VALIDATION
+
 
 -- ETAPE D'INSERTION DES DONNEES DANS LA TABLE DIM_GEOLOCATION
-INSERT INTO dbo.dim_geolocation (
+
+INSERT INTO mart.dim_geolocation (
     zip_code_prefix,
     geolocation_lat,
     geolocation_lng,
@@ -75,10 +76,10 @@ INSERT INTO dbo.dim_geolocation (
     geolocation_state
 )
 SELECT DISTINCT
-    zip_code_prefix,
-    AVG(geolocation_lat) AS geolocation_lat,
-    AVG(geolocation_lng) AS geolocation_lng,
-    MIN(geolocation_city) AS geolocation_city,
-    MIN(geolocation_state) AS geolocation_state
-FROM dbo.stg_geolocation_clean
-GROUP BY zip_code_prefix;
+    geolocation_zip_code_prefix AS zip_code_prefix,
+    geolocation_lat,
+    geolocation_lng,
+    geolocation_city,
+    geolocation_state
+FROM stg.stg_geo_clean;
+

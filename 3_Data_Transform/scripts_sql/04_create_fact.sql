@@ -26,3 +26,16 @@ ADD shipping_limit_date datetime;
 
 ALTER TABLE fact_orders 
 ADD review_id varchar(50) NULL;
+
+ALTER TABLE mart.fact_orders
+ADD expedition_delay_days int;
+
+ALTER TABLE mart.fact_orders
+ADD total_delivery_days int;
+
+ALTER TABLE mart.fact_orders
+ADD review_key INT;
+
+--Suppression colonnes
+ALTER TABLE mart.fact_orders
+DROP COLUMN review_id;
