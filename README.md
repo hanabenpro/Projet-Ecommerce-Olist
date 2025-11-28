@@ -1,8 +1,8 @@
-# 📦 Performance Supply & Livraison – Olist + IA  
+# 📦 Olist:  Performance Supply & Livraison 
 
 ## 🎯 Objectif du projet
 Ce projet vise à analyser la **performance logistique** et la **satisfaction client** sur la marketplace **Olist**, en exploitant un jeu de données e-commerce réel.  
-L’objectif est de comprendre le parcours **“de la commande à la réception”**, d’identifier les leviers d’amélioration et d’intégrer des briques **d’intelligence artificielle (IA)** pour anticiper les retards et analyser automatiquement les avis clients.
+L’objectif est de comprendre le parcours **“de la commande à la réception”**, d’identifier les leviers d’amélioration et d’intégrer des briques **d’intelligence artificielle (IA)** pour analyser automatiquement les avis clients.
 
 ---
 
@@ -15,7 +15,7 @@ La performance logistique et la satisfaction client sont des enjeux stratégique
 
 Le projet cherche donc à répondre à deux grandes questions :
 
-1. **Comment améliorer la performance logistique et son impact sur la satisfaction client ?**  
+1. **Quels sont les leviers majeurs pour améliorer la satisfaction client ?**
 2. **Peut-on prédire et expliquer les retards ou les avis négatifs à l’aide de l’IA ?**
 
 ---
@@ -30,7 +30,7 @@ Le projet cherche donc à répondre à deux grandes questions :
 
 ### 2. Analyse prédictive et IA
 - **Modèle #1 – Prédiction des retards de livraison**  
-  → Classifier les commandes susceptibles d’être livrées en retard (Random Forest / XGBoost).  
+  → Classifier les commandes susceptibles d’être livrées en retard (Random Forest).  
 - **Modèle #2 – Analyse automatique des sentiments**  
   → Détecter les émotions dans les commentaires clients à l’aide d’un modèle NLP pré-entraîné (DistilBERT).  
 
@@ -83,8 +83,8 @@ Elles sont réparties en plusieurs tables reliées par `order_id` et `customer_i
 
 ### 💬 Étape 5 — IA #2 : Analyse de sentiment des avis
 - Nettoyage du texte (`review_comment_message`).  
-- Application d’un modèle pré-entraîné (DistilBERT / Hugging Face).  
-- Extraction de mots-clés (TF-IDF / KeyBERT).  
+- Application d’un modèle pré-entraîné.  
+- Extraction de mots-clés.  
 - Analyse croisée : sentiment ↔ catégorie produit ↔ retard.  
 - Visualisation : nuage de mots, score moyen par catégorie.  
 
@@ -99,18 +99,19 @@ Elles sont réparties en plusieurs tables reliées par `order_id` et `customer_i
 
 | Type | Fichier / format | Description |
 |------|-------------------|-------------|
-| 🔍 Notebook 1 | `01_Exploration_Olist.ipynb` | Exploration et compréhension des données |
-| 🔧 Notebook 2 | `02_Cleaning_Preparation.ipynb` | Nettoyage et jointures |
-| 📊 Notebook 3 | `03_KPIs_Analyses.ipynb` | Calculs des indicateurs clés |
-| 🤖 Notebook 4 | `04_Prediction_Retards.ipynb` | Modèle de prédiction des retards |
-| 💬 Notebook 5 | `05_Sentiment_Clients.ipynb` | Analyse de sentiment des avis |
-| 📊 Dashboard Power BI | `Olist_Performance.pbix` | Visualisation interactive |
-| 📄 Rapport / slides | `Olist_Project_Presentation.pdf` | Résumé des résultats et recommandations |
+| Notebook 1 | `01_Exploration_Olist.ipynb` | Exploration et compréhension des données |
+| Notebook 2 | `02_Cleaning_Preparation.ipynb` | Nettoyage et jointures |
+| Notebook 3 | `03_KPIs_Analyses.ipynb` | Calculs des indicateurs clés |
+| Notebook 4 | `04_Prediction_Retards.ipynb` | Modèle de prédiction des retards |
+| Notebook 5 | `05_Sentiment_Clients.csv | Analyse de sentiment des avis |
+| Dashboard Power BI | `Olist_Performance.pbix` | Visualisation interactive |
+| Rapport / slides | `Olist_Project_Presentation.pdf` | Résumé des résultats et recommandations |
 
 ---
 
 ## 🧰 Outils & technologies
-- **Python** : Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, XGBoost, SHAP, Transformers  
+- **Python** : Pandas, NumPy, Matplotlib, Seaborn
+- **SQL** : SQL server 
 - **Power BI** : visualisation interactive & storytelling  
 - **Jupyter Notebook** : exploration et modélisation  
 - **Git / GitHub** : versioning et documentation  
@@ -127,8 +128,5 @@ Elles sont réparties en plusieurs tables reliées par `order_id` et `customer_i
 
 ---
 
-## 🚀 Pistes d’évolution
-- Intégration d’un modèle **multi-output** (prédire à la fois le retard et la note).  
-- Création d’un tableau de bord **temps réel** avec Streamlit ou Power BI Service.  
-- Segmentation IA des vendeurs selon performance logistique.  
+
 
