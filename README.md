@@ -106,7 +106,7 @@ Elles sont réparties en plusieurs tables reliées par `order_id` et `customer_i
 | Notebook 5 | `05_Sentiment_Clients.csv | Analyse de sentiment des avis |
 | Dashboard Power BI | `Olist_Performance.pbix` | Visualisation interactive |
 | Rapport / slides | `Olist_Project_Presentation.pdf` | Résumé des résultats et recommandations |
-![Uploading olis1.png…]()
+![Aperçu du dashboard](olis1.png)
 
 ---
 
